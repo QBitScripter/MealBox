@@ -43,7 +43,7 @@ const Body = () => {
             const json = await response.json();
             
             // Path to restaurants in Swiggy API
-            const restaurantList = json?.data?.cards[2]?.card?.gridElements?.infoWithStyle?.restaurants;
+            const restaurantList = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             
             if (restaurantList && restaurantList.length > 0) {
                 setAllRestaurants(restaurantList);

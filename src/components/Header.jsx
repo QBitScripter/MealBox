@@ -1,14 +1,6 @@
 import { useState } from "react";
 import company_logo from "../../images/company_logo_2.jpg"
-
-
-const loggedInUser = () => {
-    return true;
-}
-
-
-
-
+import { Link } from "react-router";
 
 export const Logo = () => {
     return (
@@ -30,6 +22,8 @@ const Header = () => {
                     <li>Add Restaurant</li>
                     <li>Deals</li>
                     <li>Signup</li>
+                    <li><Link to = "/about">About</Link></li>
+                    <li><Link to ="/contact">Contact Us</Link></li>
                 </ul>
             </div>
             {isLoggedIn ? (<button onClick={()=>setIsLoggedIn(false)}>Logout</button>
