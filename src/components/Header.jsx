@@ -1,5 +1,5 @@
 import { useState } from "react";
-import company_logo from "../../images/company_logo_2.jpg"
+import company_logo from "../assets/images/company_logo_2.jpg"
 import { Link } from "react-router";
 
 export const Logo = () => {

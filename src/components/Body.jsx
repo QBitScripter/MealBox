@@ -2,6 +2,7 @@ import restaurantsData from "../restaurants_data.json";
 import RestaurantCard from "./RestaurantsCard";
 import { useState, useEffect } from "react";
 import "./shimmer.css"; // Make sure to create this CSS file
+import { Link } from "react-router";
 
 // Shimmer Card Component
 const ShimmerCard = () => {
@@ -103,10 +104,12 @@ const Body = () => {
                 <div className="restaurant-list">
                     {filteredRestaurants && filteredRestaurants.length > 0 ? (
                         filteredRestaurants.map((restaurant) => (
-                            <RestaurantCard 
+                            <Link to = {"/restaurant/"+restaurant.info.id} key={restaurant.info.id}>
+                                <RestaurantCard 
                                 restaurant={restaurant} 
                                 key={restaurant.info.id} 
                             />
+                            </Link>
                         ))
                     ) : (
                         <p>No restaurants found</p>
