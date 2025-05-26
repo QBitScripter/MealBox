@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { IMG_CDN_URL } from "../config";
 import Shimmer from "./Shimmer";
 import GetLocation from "./location";
+import { useCart } from '../contexts/CartContext';
 
 const RestaurantPage = () => {
     const { id } = useParams();
@@ -10,6 +11,7 @@ const RestaurantPage = () => {
     const [isLoading, setisLoading] = useState(true);
     const [error, setError] = useState(null);
     const coordinates = GetLocation(); // Get coordinates
+    const { dispatch } = useCart();
 
     useEffect(() => {
         if (coordinates.lat && coordinates.lng) {
@@ -48,6 +50,13 @@ const RestaurantPage = () => {
             setisLoading(false);
         }
     }
+
+    const handleAddToCart = (item) => {
+        dispatch({ 
+            type: 'ADD_ITEM', 
+            payload: item 
+        });
+    };
 
     if (error) {
         return (
@@ -118,7 +127,7 @@ const RestaurantPage = () => {
                                             <span className="font-semibold text-gray-800">₹{item.price / 100}</span>
                                             <button
                                                 className="bg-blue-500 text-white px-4 py-1 rounded-md hover:bg-blue-600 transition-colors duration-200"
-                                                onClick={() => alert(`Added ${item.name} to cart!`)}
+                                                onClick={() => handleAddToCart(item)}
                                             >
                                                 ADD
                                             </button>

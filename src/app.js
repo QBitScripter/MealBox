@@ -10,15 +10,16 @@ import Error from "./components/error";
 import Contact from "./components/contact";
 import RestaurantPage from "./components/RestaurantPage"
 import Header_CC from "./components/Header_Class_Comp"
-
-
+import { CartProvider } from "./contexts/CartContext";
 
 const AppLayout = () => {
     return(
-        <React.Fragment>
-            <Header />
-            <Outlet/> {/*According to the config all the childeren will go the outlet*/}
-        </React.Fragment>
+        <CartProvider>
+            <React.Fragment>
+                <Header />
+                <Outlet/>
+            </React.Fragment>
+        </CartProvider>
     );
 }
 
@@ -62,7 +63,7 @@ const appRouter = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter} />);  
+root.render(<RouterProvider router={appRouter} />);
 
 
 
