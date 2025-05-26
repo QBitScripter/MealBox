@@ -24,7 +24,7 @@ A React-based food delivery application that allows users to browse restaurants,
 
 1. Clone the repository:
 ```sh
-git clone https://github.com/yourusername/mealbox.git
+git clone https://github.com/QBitScripter/mealbox.git
 ```
 2. Install Dependencies: 
 cd mealbox
