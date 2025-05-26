@@ -43,36 +43,39 @@ src/
   ├── config.js          # Configuration files
   └── app.js             # Application entry point
 
-6.Planned Enhancements 🔮
-    6.1 Checkout Flow
-        Cart management
-        Address selection
-        Payment integration
-        Order confirmation
-    6.2 Context API Implementation
-        Global state management
-        Cart context
-        User preferences
-        Theme management
-    6.3 User Authentication
-        Sign up flow
-        Profile management
-        Order history
-    6.4 Search & Filters
-        Restaurant search
-        Cuisine filters
-        Rating filters
-        Price range filters
 
-    6.5 Performance Optimization
-        Code splitting
-        Lazy loading
-        Image optimization
-        Caching strategies
+Planned Enhancements 🔮
+<input disabled="" type="checkbox"> Checkout Flow
+
+Cart management
+Address selection
+Payment integration
+Order confirmation
+<input disabled="" type="checkbox"> Context API Implementation
+
+Global state management
+Cart context
+User preferences
+Theme management
+<input disabled="" type="checkbox"> User Authentication
+
+Sign up flow
+Profile management
+Order history
+<input disabled="" type="checkbox"> Search & Filters
+
+Restaurant search
+Cuisine filters
+Rating filters
+Price range filters
+<input disabled="" type="checkbox"> Performance Optimization
+
+Code splitting
+Lazy loading
+Image optimization
+Caching strategies
 
 
 
-        
 Contributing 🤝
 Contributions are welcome! Please feel free to submit a Pull Request.
-
