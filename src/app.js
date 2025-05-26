@@ -9,6 +9,7 @@ import About from "./components/About";
 import Error from "./components/error";
 import Contact from "./components/contact";
 import RestaurantPage from "./components/RestaurantPage"
+import Header_CC from "./components/Header_Class_Comp"
 
 
 
@@ -47,6 +48,10 @@ const appRouter = createBrowserRouter([
                 path : "/restaurant/:id", 
                 element : <RestaurantPage/> 
 
+            },
+            {
+                path : "/about/cc",
+                element : <Header_CC/>
             }
             
         ]
@@ -61,7 +66,4 @@ root.render(<RouterProvider router={appRouter} />);
 
 
 
-// createRoot(document.getElementById("root")).render(
-//     <RouterProvider router={appRouter} />
-//   );
 

@@ -2,21 +2,25 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { IMG_CDN_URL } from "../config";
 import Shimmer from "./Shimmer";
+import GetLocation from "./location";
 
 const RestaurantPage = () => {
     const { id } = useParams();
     const [restaurantMenu, setRestaurantMenu] = useState(null);
     const [isLoading, setisLoading] = useState(true);
     const [error, setError] = useState(null);
+    const coordinates = GetLocation(); // Get coordinates
 
     useEffect(() => {
-        getRestaurantInfo();
-    }, []);
+        if (coordinates.lat && coordinates.lng) {
+            getRestaurantInfo();
+        }
+    }, [coordinates]); // Add coordinates as dependency
 
     async function getRestaurantInfo() {
         try {
             const response = await fetch(
-                `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.6329395&lng=88.4510181&restaurantId=${id}&submitAction=ENTER`
+                `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${coordinates.lat}&lng=${coordinates.lng}&restaurantId=${id}&submitAction=ENTER`
             );
             if (!response.ok) {
                 throw new Error("Failed to fetch restaurant data");
@@ -40,9 +44,8 @@ const RestaurantPage = () => {
             setRestaurantMenu(allItems);
         } catch (err) {
             setError(err.message);
-        }
-        finally{
-         setisLoading(false);
+        } finally {
+            setisLoading(false);
         }
     }
 
@@ -60,9 +63,9 @@ const RestaurantPage = () => {
         <>
         {isLoading ? 
         
-        (<Shimmer />) 
-        
-        :(
+        (<Shimmer />
+
+        ):(
 
             <div className="restaurant-page bg-white min-h-screen p-4 md:p-8">
                 <h2 className="text-2xl font-bold text-center mb-8">Menu</h2>
